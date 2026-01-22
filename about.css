@@ -1,0 +1,207 @@
+/* ===== BASE ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #2f2f2f;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto; /* biar bisa scroll ke bawah */
+  scroll-behavior: smooth; /* scroll halus */
+}
+
+
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed;
+  top: 25px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 6px 12px;
+  transition: background-color 0.8s, color 0.8s;
+}
+
+nav ul li a:hover {
+  background-color:#2fe0aa;
+  border-radius: 5px;
+}
+nav ul li a.active {
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-title {
+  position: absolute;
+  font-size: 10vw;
+  font-weight: 700;
+  color: #2f2f2f;
+  letter-spacing: 5px;
+  z-index: 1;
+  background-color:  #696969;
+  border-radius: 16px;
+}
+
+.about-photo {
+  width: 320px;
+  z-index: 2;
+  animation: fadeIn 2s ease;
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.8));
+
+}
+
+/* ===== INTRO & MOTTO SECTION ===== */
+.hero:nth-of-type(2) {
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: left;
+  gap: 30px;
+}
+
+.intro-card h1 {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 900;
+  color: #2fe0aa;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.intro-card p {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+}
+
+/* ===== HOBBY SECTION ===== */
+.hobby {
+  background-color: #2f2f2f;
+  text-align: center;
+  padding: 100px 5%;
+}
+
+.hobby-title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 900;
+  color: #2fe0aa;
+  text-shadow: 2px 2px 0 #000;
+  margin-bottom: 60px;
+}
+
+.hobby-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hobby-card {
+  background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+  padding: 30px 25px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  width: 280px;
+  text-align: center;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: 0.6s ease;
+}
+
+.hobby-card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hobby-card img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.hobby-card h2 {
+  color: #2fe0aa;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.hobby-card p {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero:nth-of-type(2) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-card, .motto-box {
+    max-width: 90%;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+  }
+
+  .about-photo {
+    width: 220px;
+  }
+
+  .intro-card, .motto-box {
+    padding: 25px 20px;
+  }
+
+  .hobby-container {
+    gap: 20px;
+  }
+
+  .hobby-card {
+    width: 90%;
+  }
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
